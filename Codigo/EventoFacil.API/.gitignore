@@ -1,0 +1,36 @@
+# Ignore arquivos de ambiente
+.env
+
+# Ignore diretórios do Composer
+/vendor/
+composer.lock
+
+# Ignore arquivos de cache
+.phpunit.result.cache
+
+# Ignore caches e logs
+/storage/logs/
+storage/framework/cache/*
+storage/framework/sessions/*
+storage/framework/views/*
+
+# Ignore arquivos do sistema
+.DS_Store
+Thumbs.db
+
+# Ignore arquivos de configuração do editor
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Ignore arquivos temporários
+*.log
+*.tmp
+*.swp
+*.bak
+*.backup
+*.orig
+*.rej
+*.swo
+*~

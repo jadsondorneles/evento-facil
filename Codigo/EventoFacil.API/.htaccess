@@ -1,0 +1,23 @@
+# Desativar listagem de diretórios
+Options -Indexes
+
+# Bloquear acesso a arquivos que começam com um ponto (.)
+<Files ~ "^\.">
+    Order allow,deny
+    Deny from all
+</Files>
+
+# Impedir acesso a arquivos sensíveis
+<FilesMatch "^(composer\.json|composer\.lock|\.htaccess|phpunit\.xml)$">
+    Require all denied
+</FilesMatch>
+
+# Impedir acesso a diretórios do sistema
+RedirectMatch 403 /vendor/
+RedirectMatch 403 /storage/
+RedirectMatch 403 /tests/
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [QSA,L]

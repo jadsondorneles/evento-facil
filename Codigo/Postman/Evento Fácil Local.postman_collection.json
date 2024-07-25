@@ -1,0 +1,132 @@
+{
+	"info": {
+		"_postman_id": "2219d130-b01d-4b8e-84fb-4e88de487835",
+		"name": "Evento Fácil Local",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5413799",
+		"_collection_link": "https://blue-satellite-349345.postman.co/workspace/Codelitt~edbf256a-6f81-483a-ae03-7e4e07adeb8f/collection/5413799-2219d130-b01d-4b8e-84fb-4e88de487835?action=share&source=collection_link&creator=5413799"
+	},
+	"item": [
+		{
+			"name": "Lista Eventos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8089/eventos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"eventos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Dados do Evento",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8089/eventos/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"eventos",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cria Novo Evento",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"titulo\": \"Novo Evento 3\",\r\n    \"descricao\": \"Descrição do novo evento\",\r\n    \"data_inicio\": \"2024-07-20 23:00:00\",\r\n    \"data_termino\": \"2024-07-28 12:00:00\",\r\n    \"cor\": \"#000000\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8089/eventos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"eventos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Atualiza Evento",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"titulo\": \"AGORA Evento Atualizado ++\",\r\n    \"descricao\": \"AGORA Descrição atualizada do evento\",\r\n    \"data_inicio\": \"2024-10-10 10:10:10\",\r\n    \"data_termino\": \"2024-11-11 11:11:11\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8089/eventos/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"eventos",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deleta Evento",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8089/eventos/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"eventos",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
