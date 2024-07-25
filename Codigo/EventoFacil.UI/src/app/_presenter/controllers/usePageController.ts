@@ -15,7 +15,7 @@ const usePageController = () => {
   const [dataSelecionada, setDataSelecionada] = useState<Date>(dayjs().toDate())
   const [eventoSelecionado, setEventoSelecionado] = useState<EventoType | null>(null)
 
-  const dataFormatada = dayjs(dataSelecionada).format('dddd, D [de] MMMM, YYYY')
+  const dataFormatada = dayjs(dataSelecionada).locale('pt-Br').format('dddd, D [de] MMMM, YYYY')
 
   const {
     data: eventos,
@@ -54,7 +54,12 @@ const usePageController = () => {
   }
 
   const onDateClick = (dateSelect: DateSelectArg) => {
-    setDataSelecionada(dayjs(dateSelect.startStr).toDate())
+    setDataSelecionada(dayjs(dateSelect.start).add(1, 'day').toDate())
+  }
+
+  const onDateDialogClick = (dateSelect: DateSelectArg) => {
+    setDataSelecionada(dayjs(dateSelect.start).add(1, 'day').toDate())
+    onCloseCalendario()
   }
 
   const onEventoSelecionado = (evento: EventoType | null) => {
@@ -77,6 +82,7 @@ const usePageController = () => {
     eventosCalendario,
     eventoSelecionado,
     onEventoSelecionado,
+    onDateDialogClick,
   }
 }
 

@@ -127,6 +127,14 @@ export const styles = {
     justifyContent: 'center',
     flexDirection: 'column',
   },
+  carregandoEventos: {
+    width: '100%',
+    height: '100%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'column',
+  },
   semEventos: {
     maxWidth: '350px',
     width: '90%',
@@ -147,5 +155,9 @@ export const styles = {
   }),
   calendarioIcon: (theme: Theme) => ({
     color: theme.palette.teal[50],
+  }),
+  circular: (theme: Theme) => ({
+    color: theme.palette.purple[100],
+    marginBottom: '10px',
   }),
 }

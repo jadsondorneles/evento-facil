@@ -3,10 +3,11 @@
 import Image from 'next/image'
 
 import { AddBox, CalendarMonth } from '@mui/icons-material'
-import { Box, Button, SpeedDial, SpeedDialAction, SpeedDialIcon, Typography } from '@mui/material'
+import { Box, Button, CircularProgress, SpeedDial, SpeedDialAction, SpeedDialIcon, Typography } from '@mui/material'
+
+import { DateSelectArg } from '@fullcalendar/core'
 
 import AnimationEventos from '@/app/_presenter/components/AnimationEventos'
-import animationEventosData from '@/app/_presenter/components/AnimationEventos/LoadingEventos.json'
 import Calendar from '@/app/_presenter/components/Calendar'
 import animationErroData from '@/app/_presenter/components/ErroLayout/Erro.json'
 import { Evento } from '@/app/_presenter/components/Evento'
@@ -19,19 +20,20 @@ import { styles } from './styles'
 const PaginaInicial = () => {
   const {
     dataFormatada,
+    errorEventos,
+    eventosCalendario,
+    eventosDataSelecionada,
+    eventoSelecionado,
+    isLoadingEventos,
     onCloseCalendario,
     onCloseEventoForm,
     onDateClick,
+    onDateDialogClick,
+    onEventoSelecionado,
     onOpenCalendario,
     onOpenEventoForm,
     openCalendario,
     openEventoForm,
-    eventosDataSelecionada,
-    isLoadingEventos,
-    errorEventos,
-    eventosCalendario,
-    eventoSelecionado,
-    onEventoSelecionado,
   } = usePageController()
 
   return (
@@ -50,8 +52,9 @@ const PaginaInicial = () => {
           </Box>
 
           {isLoadingEventos && (
-            <Box sx={styles.boxSemEventos}>
-              <AnimationEventos titulo='Carregando eventos...' animationData={animationEventosData} />
+            <Box sx={styles.carregandoEventos}>
+              <CircularProgress size={50} thickness={5} sx={styles.circular} />
+              <Typography>Carregando Eventos...</Typography>
             </Box>
           )}
 
@@ -98,7 +101,7 @@ const PaginaInicial = () => {
       <EventoForm open={openEventoForm} onClose={onCloseEventoForm} eventoSelecionado={eventoSelecionado} />
 
       <FullScreenDialog titulo='Calendário' open={openCalendario} onClose={onCloseCalendario}>
-        <Calendar onDateClick={onDateClick} events={eventosCalendario} />
+        <Calendar onDateClick={(arg: DateSelectArg) => onDateDialogClick(arg)} events={eventosCalendario} />
       </FullScreenDialog>
     </Box>
   )

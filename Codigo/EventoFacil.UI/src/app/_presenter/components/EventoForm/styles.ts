@@ -122,6 +122,5 @@ export const styles = {
   }),
   circular: (theme: Theme) => ({
     color: theme.palette.white[100],
-    '& .MuiCircularProgress-root.MuiCircularProgress-indeterminate': {},
   }),
 }

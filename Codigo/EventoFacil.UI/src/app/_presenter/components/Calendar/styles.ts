@@ -196,4 +196,13 @@ export const styles = {
     textAlign: 'center',
     margin: '12px 0 0  0',
   }),
+  loading: {
+    width: '100%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  circular: (theme: Theme) => ({
+    color: theme.palette.white[100],
+  }),
 }
